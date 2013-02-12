@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
-gem 'sqlite3'
+
+platform :ruby do
+  gem 'sqlite3'
+end
+
+platform :jruby do
+  gem 'activerecord-jdbc-adapter'
+  gem 'jdbc-sqlite3'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -31,5 +39,5 @@ end
 group :development do
   gem "quiet_assets", ">= 1.0.1"
   gem "better_errors", ">= 0.3.2"
-  gem "binding_of_caller", ">= 0.6.8"
+  #gem "binding_of_caller", ">= 0.6.8"
 end
