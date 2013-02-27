@@ -17,3 +17,6 @@ include apache2
 include jruby
 
 include postgres
+
+include tomcat6
+

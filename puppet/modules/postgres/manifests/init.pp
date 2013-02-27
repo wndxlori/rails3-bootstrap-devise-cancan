@@ -18,11 +18,12 @@ class postgres {
     command => "createuser -U postgres -SdRw vagrant",
     user => 'postgres',
     path => $path,
-    unless => "psql -c \"select * from pg_user where use-name='vagrant'\" | grep -c vagrant",
+    unless => "psql -c \
+      \"select * from pg_user where usename='vagrant'\" | grep -c vagrant",
     require => Group['postgres']
   }
 
-  exec { "psql -c \"ALTER USER vagrant WITH PASSWORD '7sigma95'\"" :
+  exec { "psql -c \"ALTER USER vagrant WITH PASSWORD 'vagrantpw'\"" :
     user => 'postgres',
     path => $path,
     require => Exec["createuser"]
