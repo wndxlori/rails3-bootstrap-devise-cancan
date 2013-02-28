@@ -17,7 +17,7 @@ end
 
 namespace :deploy do
   desc "Package the application into a WAR file and deploy it"
-  task :war do
+  task :war => "assets:precompile" do
     Warbler::Task.new(:warble)
     Rake::Task['warble'].invoke
 

@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 
-platform :ruby do
-  gem 'sqlite3'
+gem 'activerecord-jdbc-adapter'
+
+group :production do
+  gem 'jdbc-postgres'
 end
 
-platform :jruby do
-  gem 'activerecord-jdbc-adapter'
+group :development, :test do
   gem 'jdbc-sqlite3'
 end
 
