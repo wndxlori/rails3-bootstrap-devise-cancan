@@ -19,6 +19,7 @@
 # minimal Rails specific artifacts
 db/*.sqlite3
 /public/assets/
+/public/diagnostics.html
 /log/*
 /tmp/*
 

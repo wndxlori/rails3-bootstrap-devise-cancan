@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 
-platform :ruby do
-  gem 'sqlite3'
-end
+#platform :ruby do
+#  gem 'sqlite3'
+#end
 
 platform :jruby do
   gem 'activerecord-jdbc-adapter'
@@ -43,3 +43,4 @@ group :development do
 end
 
 gem 'trinidad', '~> 1.3.4'
+gem 'trinidad_diagnostics_extension'
