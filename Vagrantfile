@@ -7,8 +7,9 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base-jruby"
+  config.vm.box = "trinidad"
   config.vm.forward_port 80, 8000
+  config.vm.forward_port 3000, 8888
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"

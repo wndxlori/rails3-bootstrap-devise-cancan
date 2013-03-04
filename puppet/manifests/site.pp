@@ -17,3 +17,5 @@ include apache2
 include jruby
 
 include postgres
+
+include trinidad
