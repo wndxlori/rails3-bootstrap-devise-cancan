@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 gem 'rails', '3.2.11'
 
 #platform :ruby do
@@ -44,3 +44,6 @@ end
 
 gem 'trinidad', '~> 1.3.4'
 gem 'trinidad_diagnostics_extension'
+
+gem "capistrano"
+gem "ffi-ncurses"
