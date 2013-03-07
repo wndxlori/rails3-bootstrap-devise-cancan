@@ -16,6 +16,6 @@ include apache2
 
 include jruby
 
-include postgres
+include mysql
 
 include trinidad
