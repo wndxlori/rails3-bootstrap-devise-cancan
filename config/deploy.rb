@@ -34,7 +34,9 @@ namespace :deploy do
     run "/etc/init.d/trinidad start"
   end
 
-  task :stop, :roles => :app do end
+  task :stop, :roles => :app do
+    run "/etc/init.d/trinidad stop"
+  end
 
   task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart"
