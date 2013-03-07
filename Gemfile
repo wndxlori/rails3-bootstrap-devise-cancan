@@ -7,7 +7,8 @@ gem 'rails', '3.2.11'
 
 platform :jruby do
   gem 'activerecord-jdbc-adapter'
-  gem 'jdbc-sqlite3'
+  gem 'activerecord-jdbcmysql-adapter'
+  gem 'jdbc-mysql'
 end
 
 group :assets do
