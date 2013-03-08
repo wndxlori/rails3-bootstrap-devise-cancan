@@ -13,9 +13,10 @@ class mysql {
     ensure => running,
     require => Package["mysql-server"]
   }
- 
+
   exec { "create-db-schema-and-user":
     command => "/usr/bin/mysql -u root -p -e \"drop database if exists ${database_name}; create database ${database_name}; create user vagrant@'%' identified by 'vagrant'; grant all on ${database_name}.* to vagrant@'%'; flush privileges;\"",
+    unless => "/usr/bin/mysql -u root -p -e \"SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'username')\"",
     require => Service["mysql"]
   }
 
