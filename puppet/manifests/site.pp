@@ -19,3 +19,5 @@ include jruby
 include mysql
 
 include trinidad
+
+include nodejs

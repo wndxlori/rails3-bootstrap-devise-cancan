@@ -24,10 +24,15 @@ set :bundle_dir, ""
 set :bundle_flags, "--system --quiet"
 
 before "deploy:setup", "deploy:install_bundler"
+after "deploy:update_code", "deploy:assets"
 
 namespace :deploy do
-  task :install_bundler, roles => :app do
+  task :install_bundler, :roles => :app do
     run "sudo gem install bundler"
+  end
+
+  task :assets, :roles => :app do
+    run("cd #{deploy_to}/current && #{rake} assets:precompile RAILS_ENV=#{rails_env}")
   end
 
   task :start, :roles => :app do
