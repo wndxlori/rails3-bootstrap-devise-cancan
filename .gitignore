@@ -16,11 +16,15 @@
 /vendor/ruby/
 
 # minimal Rails specific artifacts
+/bin
 db/*.sqlite3
 /log/*
 /tmp/*
+/public/assets
+/public/diagnostics.html
 
 # various artifacts
+*.box
 **.war
 *.rbc
 *.sassc
