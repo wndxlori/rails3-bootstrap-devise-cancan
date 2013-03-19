@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: rbdc_production
   pool: 5
-  username: vagrant
+  username: rbdc_production
   password: vagrant
   socket: /tmp/mysql.sock

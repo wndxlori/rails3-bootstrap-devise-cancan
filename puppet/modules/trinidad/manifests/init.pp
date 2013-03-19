@@ -7,14 +7,14 @@ class trinidad {
   }
 
   exec { install_trinidad :
-    command => "jruby -S gem install trinidad -v 1.3.4",
+    command => "jruby -S gem install trinidad -v 1.4.4",
     path => "${jruby_home}/bin:${path}",
     creates => "${jruby_home}/bin/trinidad",
     require => File[$jruby_home]
   }
 
   exec { install_trinidad_init_services :
-    command => "jruby -S gem install trinidad_init_services -v 1.1.3",
+    command => "jruby -S gem install trinidad_init_services -v 1.2.2",
     path => "${jruby_home}/bin:${path}",
     creates => "${jruby_home}/bin/trinidad_init_service",
     require => [Package[jsvc], Exec[install_trinidad], File[$jruby_home]]

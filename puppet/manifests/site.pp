@@ -1,3 +1,6 @@
+$database_name = 'rbdc_production'
+$mysql_password = 'vagrant'
+
 group { "puppet" :
   ensure => "present",
 }
@@ -8,16 +11,16 @@ exec { "apt-update" :
 }
 Exec["apt-update"] -> Package <| |>
 
-package { "openjdk-6-jdk" :
+package { "openjdk-7-jdk" :
   ensure => present
 }
 
 include apache2
 
-include jruby
-
 include mysql
+
+include jruby
 
 include trinidad
 
-include nodejs
+include rbdc::db

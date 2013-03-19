@@ -1,5 +1,4 @@
 class mysql {
-  $database_name = 'rbdc_production'
 
   package { "mysql-client":
     ensure => present
@@ -14,10 +13,11 @@ class mysql {
     require => Package["mysql-server"]
   }
 
-  exec { "create-db-schema-and-user":
-    command => "/usr/bin/mysql -u root -p -e \"drop database if exists ${database_name}; create database ${database_name}; create user vagrant@'%' identified by 'vagrant'; grant all on ${database_name}.* to vagrant@'%'; flush privileges;\"",
-    unless => "/usr/bin/mysql -u root -p -e \"SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = 'username')\"",
-    require => Service["mysql"]
+  exec { "set-mysql-password":
+    subscribe => [ Package["mysql-server"], Package["mysql-client"] ],
+    unless => "mysqladmin -uroot -p$mysql_password status",
+    path => "/bin:/usr/bin",
+    command => "mysqladmin -uroot password $mysql_password",
   }
 
   file { "/etc/mysql/my.cnf":

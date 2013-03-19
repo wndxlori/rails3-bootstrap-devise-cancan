@@ -24,11 +24,13 @@ set :bundle_dir, ""
 set :bundle_flags, "--system --quiet"
 
 before "deploy:setup", "deploy:install_bundler"
-after "deploy:update_code", "deploy:assets"
+after "deploy:create_symlink", "deploy:assets"
 
 namespace :deploy do
   task :install_bundler, :roles => :app do
     run "sudo gem install bundler"
+    run "sudo ln -s /lib/x86_64-linux-gnu/libncursesw.so.5 /lib/x86_64-linux-gnu/libncursesw.so"
+    run "sudo ln -s /usr/lib/x86_64-linux-gnu/libpanelw.so.5 /usr/lib/x86_64-linux-gnu/libpanel.so"
   end
 
   task :assets, :roles => :app do
