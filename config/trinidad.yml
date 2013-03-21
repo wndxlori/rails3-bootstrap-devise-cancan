@@ -1,3 +1,14 @@
 jruby_max_runtimes: 1
 extensions:
   diagnostics:
+  worker:
+    delayed_job:
+      # all settings here are optional
+      thread_count: 1
+      thread_priority: NORM
+      # DJ specifics (optional as well) :
+      QUEUE: mailer,task
+      READ_AHEAD: 3 # default 5
+      SLEEP_DELAY: 10 # default 5
+      #MIN_PRIORITY: 1
+      #MAX_PRIORITY: 5
