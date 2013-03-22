@@ -37,15 +37,17 @@ namespace :deploy do
     run("cd #{deploy_to}/current && #{rake} assets:precompile RAILS_ENV=#{rails_env}")
   end
 
+  desc "Starting rails"
   task :start, :roles => :app do
     run "/etc/init.d/trinidad start"
   end
 
+  desc "Stopping rails"
   task :stop, :roles => :app do
     run "/etc/init.d/trinidad stop"
   end
 
   task :restart, :roles => :app do
-    run "touch #{current_release}/tmp/restart"
+    run "touch #{current_release}/tmp/restart.txt"
   end
 end
