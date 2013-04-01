@@ -1,3 +1,10 @@
+PATH
+  remote: ../yubikey_database_authenticatable
+  specs:
+    yubikey_database_authenticatable (0.3.1)
+      devise (~> 2.2.3)
+      yubikey (~> 1.3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -120,7 +127,7 @@ GEM
       jruby-openssl
       nokogiri (>= 1.5.0.beta.4)
       term-ansicolor
-    jruby-openssl (0.8.6)
+    jruby-openssl (0.8.7)
       bouncy-castle-java (>= 1.5.0147)
     jruby-rack (1.1.13.1)
     jruby-rack-worker (0.9.1)
@@ -232,6 +239,7 @@ GEM
     websocket (1.0.7)
     xpath (1.0.0)
       nokogiri (~> 1.3)
+    yubikey (1.3.1)
 
 PLATFORMS
   java
@@ -268,3 +276,5 @@ DEPENDENCIES
   trinidad_diagnostics_extension
   trinidad_worker_extension
   uglifier (>= 1.0.3)
+  yubikey (~> 1.3.1)
+  yubikey_database_authenticatable!

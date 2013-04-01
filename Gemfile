@@ -28,6 +28,8 @@ gem "simple_form", ">= 2.0.4"
 gem "figaro", ">= 0.5.3"
 gem "delayed_job"
 gem "delayed_job_active_record"
+gem "yubikey", "~> 1.3.1"
+gem "yubikey_database_authenticatable", :path => "../yubikey_database_authenticatable"
 
 group :test do
   gem "rspec-rails", ">= 2.12.2"
