@@ -14,7 +14,9 @@ Exec["apt-update"] -> Package <| |>
 package { "emacs23" :
     ensure => present
 }
-
+package { "git" :
+    ensure => present
+}
 package { "openjdk-7-jdk" :
   ensure => present
 }
